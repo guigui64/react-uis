@@ -1,4 +1,4 @@
-import Button from "./components/Button";
+import ButtonDemo from "./components/Button";
 import "./App.css";
 import { createContext, useContext } from "react";
 import { atom, RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
@@ -49,13 +49,9 @@ function Demo({ id }: { id: number }) {
           <option value="chakra">Chakra UI</option>
         </select>
         <div>
-          <div className="flex gap-4">
-            <IndexContext.Provider value={id}>
-              <Button>Button</Button>
-              <Button variant="outlined">Button</Button>
-              <Button variant="ghost">Button</Button>
-            </IndexContext.Provider>
-          </div>
+          <IndexContext.Provider value={id}>
+            <ButtonDemo />
+          </IndexContext.Provider>
         </div>
       </div>
     </div>
