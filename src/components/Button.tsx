@@ -1,6 +1,7 @@
 import { /*lazy,*/ ReactNode } from "react";
 // const MuiButton = lazy(() => import("@mui/material/Button"));
 import MuiButton from "@mui/material/Button";
+import { Button as ChakraButton } from "@chakra-ui/react";
 import { Button as BlueprintButton, Intent } from "@blueprintjs/core";
 import { useLib } from "../App";
 
@@ -8,7 +9,7 @@ const docs = {
   mui: "https://mui.com/material-ui/react-button/",
   blueprint: "https://blueprintjs.com/docs/#core/components/button",
   daisy: "https://daisyui.com/components/button/",
-  chakra: "",
+  chakra: "https://chakra-ui.com/docs/components/form/button",
 };
 
 const variants = ["outlined", "ghost"];
@@ -39,6 +40,10 @@ export function Button(
       );
     case "daisy":
       return <button className={toDaisy(otherProps)}>{props.children}</button>;
+    case "chakra":
+      return (
+        <ChakraButton {...toChakra(otherProps)}>{props.children}</ChakraButton>
+      );
     default:
       throw Error(`Unknown library "${lib}"`);
   }
@@ -96,11 +101,28 @@ const toDaisy = (props: ButtonProps) => {
   return cn;
 };
 
+const toChakra = (props: ButtonProps) => ({
+  size: props.size && { small: "sm", large: "lg" }[props.size],
+  variant: props.variant === "outlined" ? "outline" : props.variant,
+  colorScheme:
+    (props.color &&
+      {
+        primary: "teal",
+        secondary: "purple",
+        success: "green",
+        warning: "yellow",
+        error: "red",
+      }[props.color]) ||
+    "gray",
+});
+
 export default function ButtonDemo() {
   const lib = useLib();
   return (
     <div className="flex flex-col gap-4">
-      <a href={docs[lib]}>{docs[lib]}</a>
+      <a className="link text-xs" href={docs[lib]}>
+        {docs[lib]}
+      </a>
       <div className="flex gap-4">
         {sizes.map((size) => (
           <div key={`size-${size}`}>
