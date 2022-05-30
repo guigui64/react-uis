@@ -41,7 +41,8 @@ function App() {
             </label>
           </div>
           <div className="flex-none">
-            <a className="btn btn-ghost normal-case text-xl">React-UIs</a>
+            {/* TODO use Link to / */}
+            <span className="btn btn-ghost normal-case text-xl">React-UIs</span>
             <span className="text-sm">Compare React UI libraries</span>
           </div>
         </div>
@@ -58,10 +59,11 @@ function App() {
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu menu-compact p-4 overflow-y-auto w-60 bg-base-300 text-base-content">
           <li>
-            <a className="active">Buttons</a>
+            {/* TODO use Link to /Buttons */}
+            <span className="active">Buttons</span>
           </li>
           <li>
-            <a>...</a>
+            <span>...</span>
           </li>
         </ul>
       </div>
