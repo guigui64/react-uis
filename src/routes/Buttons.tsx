@@ -3,7 +3,7 @@ import { /*lazy,*/ ReactNode } from "react";
 import MuiButton from "@mui/material/Button";
 import { Button as ChakraButton } from "@chakra-ui/react";
 import { Button as BlueprintButton, Intent } from "@blueprintjs/core";
-import { useLib } from "../App";
+import DemoGroup, { useLib } from "../components/Demo";
 
 const docs = {
   mui: "https://mui.com/material-ui/react-button/",
@@ -12,9 +12,9 @@ const docs = {
   chakra: "https://chakra-ui.com/docs/components/form/button",
 };
 
-const variants = ["outlined", "ghost"];
-const colors = ["primary", "secondary", "success", "warning", "error"];
-const sizes = ["large", "medium", "small"];
+const variants = ["outlined", "ghost"] as const;
+const colors = ["primary", "secondary", "success", "warning", "error"] as const;
+const sizes = ["large", "medium", "small"] as const;
 
 type ButtonProps = {
   variant?: typeof variants[number];
@@ -116,31 +116,34 @@ const toChakra = (props: ButtonProps) => ({
     "gray",
 });
 
-export default function ButtonDemo() {
-  const lib = useLib();
+export default function Buttons() {
   return (
-    <div className="flex flex-col gap-4">
-      <a className="link text-xs" href={docs[lib]}>
-        {docs[lib]}
-      </a>
-      <div className="flex gap-4">
-        {sizes.map((size) => (
-          <div key={`size-${size}`}>
-            <Button size={size}>Button</Button>
+    <DemoGroup
+      element={(lib) => (
+        <div className="flex flex-col gap-4">
+          <a className="link text-xs" href={docs[lib]}>
+            {docs[lib]}
+          </a>
+          <div className="flex gap-4">
+            {sizes.map((size) => (
+              <div key={`size-${size}`}>
+                <Button size={size}>Button</Button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {colors.map((color) => (
-        <div className="flex gap-4" key={`color-${color}`}>
-          {[undefined, ...variants].map((variant) => (
-            <div key={`variant-${variant}`}>
-              <Button variant={variant} color={color}>
-                Button
-              </Button>
+          {colors.map((color) => (
+            <div className="flex gap-4" key={`color-${color}`}>
+              {[undefined, ...variants].map((variant) => (
+                <div key={`variant-${variant}`}>
+                  <Button variant={variant} color={color}>
+                    Button
+                  </Button>
+                </div>
+              ))}
             </div>
           ))}
         </div>
-      ))}
-    </div>
+      )}
+    />
   );
 }
