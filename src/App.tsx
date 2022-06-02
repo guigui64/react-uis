@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content flex flex-col min-h-screen bg-base-200">
         <div className="navbar bg-base-300">
           <div className="flex-none">
             <label
@@ -36,7 +36,7 @@ export default function App() {
             <span className="text-sm">Compare React UI libraries</span>
           </div>
         </div>
-        <main className="m-4">
+        <main className="m-4 flex-grow">
           <Outlet />
         </main>
       </div>
