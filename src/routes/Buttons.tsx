@@ -102,7 +102,8 @@ const toDaisy = (props: ButtonProps) => {
 };
 
 const toChakra = (props: ButtonProps) => ({
-  size: props.size && { small: "sm", medium: "", large: "lg" }[props.size],
+  size:
+    props.size && { small: "sm", medium: undefined, large: "lg" }[props.size],
   variant: props.variant === "outlined" ? "outline" : props.variant,
   colorScheme:
     (props.color &&

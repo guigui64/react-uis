@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
     <div className="hero min-h-full">
       <div className="hero-content text-center">
-        <div className="max-w-md">
-          <h1 className="text-5xl font-bold">Hello there</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+        <div>
+          <h1 className="text-8xl font-bold">React-UIs</h1>
+          <p className="text-xl py-6">
+            Compare many React UI libraries components in the blink of an eye!
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link to="/buttons" className="btn btn-primary">
+            Compare
+          </Link>
         </div>
       </div>
     </div>
