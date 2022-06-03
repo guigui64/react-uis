@@ -30,7 +30,10 @@ export default function App() {
             </label>
           </div>
           <div className="flex-none">
-            <Link to="/" className="btn btn-ghost normal-case text-xl">
+            <Link
+              to="/"
+              className="btn btn-ghost normal-case text-xl text-primary"
+            >
               React-UIs
             </Link>
             <span className="text-sm">Compare React UI libraries</span>
