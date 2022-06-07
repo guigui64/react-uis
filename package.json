@@ -21,6 +21,7 @@
     "framer-motion": "^6.3.3",
     "gh-pages": "^4.0.0",
     "immer": "^9.0.14",
+    "patch-package": "^6.4.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",

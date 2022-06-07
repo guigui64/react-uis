@@ -1,0 +1,25 @@
+diff --git a/node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js b/node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js
+index 50b0c25..1689cd4 100644
+--- a/node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js
++++ b/node_modules/@chakra-ui/color-mode/dist/chakra-ui-color-mode.esm.js
+@@ -34,14 +34,14 @@ function getColorModeUtils(options) {
+       preventTransition = _options$preventTrans === void 0 ? true : _options$preventTrans;
+   var utils = {
+     setDataset: function setDataset(value) {
+-      var cleanup = preventTransition ? utils.preventTransition() : undefined;
+-      document.documentElement.dataset.theme = value;
+-      document.documentElement.style.colorScheme = value;
+-      cleanup == null ? void 0 : cleanup();
++      // var cleanup = preventTransition ? utils.preventTransition() : undefined;
++      // document.documentElement.dataset.theme = value;
++      // document.documentElement.style.colorScheme = value;
++      // cleanup == null ? void 0 : cleanup();
+     },
+     setClassName: function setClassName(dark) {
+-      document.body.classList.add(dark ? classNames.dark : classNames.light);
+-      document.body.classList.remove(dark ? classNames.light : classNames.dark);
++      // document.body.classList.add(dark ? classNames.dark : classNames.light);
++      // document.body.classList.remove(dark ? classNames.light : classNames.dark);
+     },
+     query: function query() {
+       return window.matchMedia("(prefers-color-scheme: dark)");

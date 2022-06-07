@@ -23,7 +23,7 @@ function Demo({ id, children }: { id: number; children: ReactNode }) {
   const [libs, setLibs] = useRecoilState(libsState);
   const availableLibs = libTypes.filter((lib) => !libs.includes(lib));
   const innerDemo = (
-    <div className="p-4 bg-base-100 shadow-xl rounded-lg">
+    <div data-theme="light" className="p-4 bg-base-100 shadow-xl rounded-lg">
       <div className="flex flex-col gap-4">
         <div className="flex gap-4 min-w-min">
           <select
@@ -45,7 +45,7 @@ function Demo({ id, children }: { id: number; children: ReactNode }) {
           </select>
           <button
             className={
-              "btn btn-sm btn-circle btn-ghost text-neutral/50" +
+              "btn btn-sm btn-circle btn-ghost text-content/50" +
               (libs.length === 1 ? " opacity-0" : "")
             }
             onClick={() =>
