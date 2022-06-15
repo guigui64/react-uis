@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import produce from "immer";
 import { ChakraProvider } from "@chakra-ui/react";
-import { libsState, LibType, libTypes } from "../states";
+import { displayNames, libsState, LibType, libTypes } from "../states";
 
 export const IndexContext = createContext(0);
 
@@ -10,13 +10,6 @@ export const useLib = () => {
   const libs = useRecoilValue(libsState);
   const index = useContext(IndexContext);
   return libs[index] || "mui";
-};
-
-const displayNames = {
-  mui: "Material UI",
-  blueprint: "Blueprint",
-  daisy: "Daisy UI",
-  chakra: "Chakra UI",
 };
 
 function Demo({ id, children }: { id: number; children: ReactNode }) {
