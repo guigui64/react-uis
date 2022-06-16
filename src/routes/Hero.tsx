@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 import { displayNames, libTypes } from "../states";
 
+function shuffled<T>(array: T[]): T[] {
+  let newArray = array.slice();
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+const shuffledLibs = shuffled(libTypes.slice());
+
 export default function Hero() {
   return (
     <div className="hero min-h-full">
@@ -11,19 +21,19 @@ export default function Hero() {
               React-UIs
             </span>
           </h1>
-          <div className="text-2xl py-6 flex gap-2 pr-24">
+          <div className="text-2xl py-6 flex gap-2 pr-28">
             <span>
               Compare in the blink of an eye components from many React UI
               libraries such as
             </span>
             <div
-              className="inline [--rotate-word-height:20px]"
+              className="inline [--rotate-word-height:20px] font-semibold text-secondary"
               style={{
                 ["--rotate-animation-duration" as any]:
                   3 * libTypes.length + "s",
               }}
             >
-              {libTypes.map((lib, i) => (
+              {shuffledLibs.map((lib, i) => (
                 <span
                   key={lib}
                   className="absolute overflow-hidden opacity-0 animate-rotate-word"

@@ -16,6 +16,7 @@
     "@chakra-ui/react": "^2.1.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/joy": "^5.0.0-alpha.32",
     "@mui/material": "^5.8.0",
     "daisyui": "^2.15.0",
     "framer-motion": "^6.3.3",

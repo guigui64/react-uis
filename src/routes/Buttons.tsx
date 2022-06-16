@@ -1,6 +1,7 @@
 import { /*lazy,*/ ReactNode } from "react";
 // const MuiButton = lazy(() => import("@mui/material/Button"));
 import MuiButton from "@mui/material/Button";
+import JoyButton from "@mui/joy/Button";
 import { Button as ChakraButton } from "@chakra-ui/react";
 import { Button as BlueprintButton, Intent } from "@blueprintjs/core";
 import DemoGroup, { useLib } from "../components/Demo";
@@ -10,6 +11,7 @@ const docs = {
   blueprint: "https://blueprintjs.com/docs/#core/components/button",
   daisy: "https://daisyui.com/components/button/",
   chakra: "https://chakra-ui.com/docs/components/form/button",
+  joy: "https://mui.com/joy-ui/react-button/",
 };
 
 const variants = ["outlined", "ghost"] as const;
@@ -44,10 +46,34 @@ export function Button(
       return (
         <ChakraButton {...toChakra(otherProps)}>{props.children}</ChakraButton>
       );
+    case "joy":
+      return <JoyButton {...toJoy(otherProps)}>{props.children}</JoyButton>;
     default:
       throw Error(`Unknown library "${lib}"`);
   }
 }
+
+const toJoy = (props: ButtonProps) => ({
+  variant: (props.variant === "ghost" ? "soft" : props.variant) as
+    | "soft"
+    | "outlined"
+    | undefined,
+  color: (props.color === "secondary"
+    ? "neutral"
+    : props.color === "error"
+    ? "danger"
+    : props.color) as
+    | "primary"
+    | "neutral"
+    | "success"
+    | "warning"
+    | "error"
+    | "info"
+    | undefined,
+  size:
+    (props.size && { large: "lg", medium: "md", small: "sm" }[props.size]) ||
+    undefined,
+});
 
 const toMui = (props: ButtonProps) => ({
   variant: (props.variant

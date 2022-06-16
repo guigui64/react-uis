@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import produce from "immer";
 import { ChakraProvider } from "@chakra-ui/react";
 import { displayNames, libsState, LibType, libTypes } from "../states";
+import { CssVarsProvider } from "@mui/joy";
 
 export const IndexContext = createContext(0);
 
@@ -70,6 +71,8 @@ function Demo({ id, children }: { id: number; children: ReactNode }) {
   );
   if (libs[id] === "chakra") {
     return <ChakraProvider>{innerDemo}</ChakraProvider>;
+  } else if (libs[id] === "joy") {
+    return <CssVarsProvider>{innerDemo}</CssVarsProvider>;
   } else {
     return innerDemo;
   }
