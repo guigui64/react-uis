@@ -2,7 +2,9 @@ import { createContext, ReactNode, useContext } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import produce from "immer";
 import { ChakraProvider } from "@chakra-ui/react";
-import { displayNames, libsState, LibType, libTypes } from "../states";
+import { libsState } from "../states";
+import { LibType } from "../types";
+import { displayNames, libTypes } from "../consts";
 import { CssVarsProvider } from "@mui/joy";
 
 export const IndexContext = createContext(0);

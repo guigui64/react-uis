@@ -67,11 +67,15 @@ const toJoy = (props: ButtonProps) => ({
     | "neutral"
     | "success"
     | "warning"
-    | "error"
+    | "danger"
     | "info"
     | undefined,
   size:
-    (props.size && { large: "lg", medium: "md", small: "sm" }[props.size]) ||
+    (props.size &&
+      ({ large: "lg", medium: "md", small: "sm" }[props.size] as
+        | "lg"
+        | "md"
+        | "sm")) ||
     undefined,
 });
 

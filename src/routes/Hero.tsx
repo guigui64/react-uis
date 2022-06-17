@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
-import { displayNames, libTypes } from "../states";
+import { displayNames, libTypes } from "../consts";
+import { shuffled } from "../utils";
 
-function shuffled<T>(array: T[]): T[] {
-  let newArray = array.slice();
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
 const shuffledLibs = shuffled(libTypes.slice());
 
 export default function Hero() {
@@ -29,7 +22,7 @@ export default function Hero() {
             <div
               className="inline [--rotate-word-height:20px] font-semibold text-secondary"
               style={{
-                ["--rotate-animation-duration" as any]:
+                ["--rotate-animation-duration" as string]:
                   3 * libTypes.length + "s",
               }}
             >

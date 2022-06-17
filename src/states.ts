@@ -1,17 +1,11 @@
 import { atom } from "recoil";
+import { libTypes } from "./consts";
+import { LibType } from "./types";
+import { shuffled } from "./utils";
 
-export const libTypes = ["blueprint", "chakra", "daisy", "mui", "joy"] as const;
-export const displayNames = {
-  mui: "Material UI",
-  blueprint: "Blueprint",
-  daisy: "Daisy UI",
-  chakra: "Chakra UI",
-  joy: "Joy UI",
-};
-
-export type LibType = typeof libTypes[number];
+const initialLibs = shuffled(libTypes.slice()).slice(0, 2);
 
 export const libsState = atom<LibType[]>({
   key: "libsState",
-  default: [...libTypes],
+  default: initialLibs,
 });
